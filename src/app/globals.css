@@ -297,6 +297,45 @@
   animation: hy-pulse 2.4s ease-in-out infinite;
 }
 
+@keyframes spin-cd {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dance {
+  0%,
+  100% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.animate-spin-cd {
+  animation: spin-cd 3s linear infinite;
+}
+
+.animate-dance-1 {
+  animation: dance 0.4s ease-in-out infinite;
+}
+
+.animate-dance-2 {
+  animation: dance 0.4s ease-in-out 0.1s infinite;
+}
+
+.animate-dance-3 {
+  animation: dance 0.4s ease-in-out 0.2s infinite;
+}
+
+.animate-dance-4 {
+  animation: dance 0.4s ease-in-out 0.3s infinite;
+}
+
 .btn-shine::after {
   content: "";
   position: absolute;

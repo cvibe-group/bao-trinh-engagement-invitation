@@ -1,16 +1,17 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useCallback, useRef, useState, useSyncExternalStore } from "react";
 import { AlbumSection } from "@/components/AlbumSection";
 import { CeremonySection } from "@/components/CeremonySection";
 import { EnvelopeOverlay } from "@/components/EnvelopeOverlay";
 import { GuestbookSection } from "@/components/GuestbookSection";
 import { HeroSection } from "@/components/HeroSection";
-import { MusicToggle } from "@/components/MusicToggle";
+import { MusicToggle, type MusicToggleHandle } from "@/components/MusicToggle";
 import { ReceptionSection } from "@/components/ReceptionSection";
 import { ThanksFooter } from "@/components/ThanksFooter";
 import { TimelineSection } from "@/components/TimelineSection";
 import { VenueSection } from "@/components/VenueSection";
+import { useAutoScroll } from "@/hooks/use-auto-scroll";
 import { cn } from "@/lib/utils";
 
 function subscribe() {
@@ -29,7 +30,17 @@ export function InvitationApp() {
   );
   const [dismissed, setDismissed] = useState(false);
   const [leaving, setLeaving] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const musicRef = useRef<MusicToggleHandle>(null);
   const showOverlay = !skipEnvelope && !dismissed;
+  const onPlayingChange = useCallback((next: boolean) => {
+    setPlaying(next);
+  }, []);
+
+  useAutoScroll({
+    enabled: !showOverlay,
+    playing,
+  });
 
   return (
     <div
@@ -41,7 +52,10 @@ export function InvitationApp() {
       {showOverlay ? (
         <EnvelopeOverlay
           leaving={leaving}
-          onOpen={() => setLeaving(true)}
+          onOpen={() => {
+            void musicRef.current?.play();
+            setLeaving(true);
+          }}
           onLeaveEnd={() => setDismissed(true)}
         />
       ) : null}
@@ -64,7 +78,7 @@ export function InvitationApp() {
         </div>
       </main>
 
-      <MusicToggle />
+      <MusicToggle ref={musicRef} onPlayingChange={onPlayingChange} />
     </div>
   );
 }
