@@ -89,6 +89,7 @@ export function MusicToggle({ ref, onPlayingChange }: MusicToggleProps) {
           style={{
             background:
               "linear-gradient(to right bottom, rgba(215, 12, 27, 0.8), rgb(215, 12, 27), rgba(215, 12, 27, 0.867))",
+            animation: playing ? "spin-cd 3s linear infinite" : undefined,
           }}
         >
           <span className="absolute inset-1 rounded-full border border-white/20" />
@@ -99,19 +100,28 @@ export function MusicToggle({ ref, onPlayingChange }: MusicToggleProps) {
             <span className="flex h-4 items-end gap-0.5">
               <span
                 className="animate-dance-1 w-1 rounded-full bg-white"
-                style={{ height: "60%" }}
+                style={{ height: "60%", animation: "dance 0.4s ease-in-out infinite" }}
               />
               <span
                 className="animate-dance-2 w-1 rounded-full bg-white"
-                style={{ height: "100%" }}
+                style={{
+                  height: "100%",
+                  animation: "dance 0.4s ease-in-out 0.1s infinite",
+                }}
               />
               <span
                 className="animate-dance-3 w-1 rounded-full bg-white"
-                style={{ height: "40%" }}
+                style={{
+                  height: "40%",
+                  animation: "dance 0.4s ease-in-out 0.2s infinite",
+                }}
               />
               <span
                 className="animate-dance-4 w-1 rounded-full bg-white"
-                style={{ height: "80%" }}
+                style={{
+                  height: "80%",
+                  animation: "dance 0.4s ease-in-out 0.3s infinite",
+                }}
               />
             </span>
           ) : (
