@@ -103,9 +103,9 @@ function FamilyColumn({
       <span className="font-hand text-[14px] font-light md:text-[15px]">
         {label}
       </span>
-      <span className="font-hand text-[14px] font-semibold text-invitation [overflow-wrap:anywhere] md:text-[15px]">
+      {father && <span className="font-hand text-[14px] font-semibold text-invitation [overflow-wrap:anywhere] md:text-[15px]">
         {father}
-      </span>
+      </span>}
       <span className="font-hand text-[14px] font-semibold text-invitation [overflow-wrap:anywhere] md:text-[15px]">
         {mother}
       </span>

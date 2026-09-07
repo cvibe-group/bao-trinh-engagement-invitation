@@ -136,11 +136,11 @@ export function AlbumSection() {
               </div>
             </div>
           </div>
-          <div className="mt-3 flex justify-center">
+          {/* <div className="mt-3 flex justify-center">
             <span className="text-sm tabular-nums opacity-60">
               {index + 1} / {n}
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
 

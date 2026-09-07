@@ -28,15 +28,15 @@ export const invitation: InvitationContent = {
   ceremonyHeading: "THÔNG TIN LỄ ĐÍNH HÔN",
   groomFamily: {
     grandparentsLabel: "Ông Bà",
-    father: "Lê Văn Bình",
-    mother: "Trần Thị Hằng",
-    address: "Số 3, Xóm 1, Xã Ninh Nhất, TP. Ninh Bình",
+    father: "Trương Hoàng Dũng",
+    mother: "Lưu Kiều Phượng",
+    address: "Khu phố 1, Phường Mỹ Phước Tây, Tỉnh Đồng Tháp",
   },
   brideFamily: {
-    grandparentsLabel: "Ông Bà",
-    father: "Nguyễn Văn Lợi",
-    mother: "Vũ Thị Thanh",
-    address: "Tổ 5, Phường Nam Thành, TP. Ninh Bình",
+    grandparentsLabel: "Bà",
+    father: "",
+    mother: "Dương Thị Bé Hai",
+    address: "Ấp 7, Xã Bình Phú, Tỉnh Đồng Tháp",
   },
   ceremony: {
     announcement: "TRÂN TRỌNG BÁO TIN",
@@ -44,7 +44,7 @@ export const invitation: InvitationContent = {
     heldAtLabel: "LỄ ĐÍNH HÔN ĐƯỢC CỬ HÀNH TẠI",
     heldAt: "TƯ GIA",
     timeLabel: "VÀO LÚC",
-    time: "08:00",
+    time: "09:00",
     weekday: "THỨ TƯ",
     day: "16",
     monthLabel: "THÁNG 09",
@@ -56,25 +56,23 @@ export const invitation: InvitationContent = {
     "/images/photos/album-01.jpg",
     "/images/photos/album-02.jpg",
     "/images/photos/album-03.jpg",
-    "/images/photos/album-04.jpg",
     "/images/photos/album-05.jpg",
     "/images/photos/album-06.jpg",
-    "/images/photos/album-07.jpg",
-    "/images/photos/album-08.jpg",
+    "/images/photos/album-03.jpg",
     "/images/photos/album-09.jpg",
   ],
   receptionHeading: "THÔNG TIN TIỆC ĐÍNH HÔN",
   reception: {
     heading: "THÔNG TIN TIỆC ĐÍNH HÔN",
     timeIntro: "Tiệc đính hôn sẽ diễn ra vào lúc:",
-    time: "10:00",
+    time: "09:00",
     weekday: "THỨ TƯ",
     day: "16",
     monthLabel: "THÁNG 09",
     year: "2026",
     lunar: "(Tức ngày 6 tháng 8 năm Bính Ngọ)",
     startLabel: "Nhập tiệc",
-    startTime: "10:00",
+    startTime: "10:30",
     calendarMonthLabel: "Tháng 9 / 2026",
     highlightDay: 16,
     yearNum: 2026,
@@ -86,10 +84,11 @@ export const invitation: InvitationContent = {
     "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1207.235581408615!2d106.07359226961701!3d10.383895318499446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIzJzAyLjAiTiAxMDbCsDA0JzI3LjMiRQ!5e1!3m2!1svi!2s!4v1787726621079!5m2!1svi!2s",
   timelineHeading: "LỊCH TRÌNH NGÀY ĐÍNH HÔN",
   timeline: [
-    { time: "07:30", label: "Đón khách" },
-    { time: "08:00", label: "Làm lễ" },
-    { time: "10:00", label: "Nhập tiệc" },
-    { time: "12:30", label: "Kết thúc tiệc" },
+    { time: "08:30", label: "Đón Khách" },
+    { time: "09:00", label: "Lễ Gia Tiên" },
+    { time: "10:00", label: "Lễ Sân Khấu" },
+    { time: "10:30", label: "Nhập Tiệc" },
+    { time: "12:00", label: "Kết Thúc Tiệc" },
   ],
   guestbookHeading: "Sổ lưu bút",
   guestbookEmpty: "Chưa có lời chúc nào. Hãy là người đầu tiên!",
@@ -101,45 +100,7 @@ export const invitation: InvitationContent = {
   thanksLine:
     "Sự hiện diện của quý khách là niềm vinh hạnh của gia đình chúng tôi!",
   seededWishes: [
-    {
-      id: "1",
-      author: "Gia đình cô Lan",
-      at: "10:58:41 30/7/2026",
-      message: "Chúc hai cháu trăm năm hạnh phúc, sớm sinh quý tử!",
-    },
-    {
-      id: "2",
-      author: "Bạn thân của cô dâu",
-      at: "10:58:41 29/7/2026",
-      message:
-        "Chúc mừng hai bạn về chung một nhà. Mong hai bạn luôn yêu thương nhau như ngày đầu!",
-    },
-    {
-      id: "3",
-      author: "Anh Minh",
-      at: "10:58:41 28/7/2026",
-      message: "Nhìn thiệp mà thấy ấm áp ghê. Chúc lễ đính hôn thật trọn vẹn nhé!",
-    },
-    {
-      id: "4",
-      author: "Chị Hương",
-      at: "10:58:41 27/7/2026",
-      message: "Chúc cô dâu chú rể trăm năm hảo hợp, gia đình luôn đầm ấm.",
-    },
-    {
-      id: "5",
-      author: "Tập thể lớp 12A",
-      at: "10:58:41 26/7/2026",
-      message:
-        "Mừng hạnh phúc hai bạn! Chúc hai bạn luôn nắm tay nhau đi hết chặng đường dài.",
-    },
-    {
-      id: "6",
-      author: "Bác Tuấn",
-      at: "10:58:41 25/7/2026",
-      message:
-        "Chúc hai cháu một lễ đính hôn thật vui và một cuộc sống thật bình yên.",
-    },
+
   ],
 };
 
