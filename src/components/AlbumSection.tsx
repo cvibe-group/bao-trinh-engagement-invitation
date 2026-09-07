@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { invitation } from "@/lib/invitation-content";
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon } from "@/components/icons";
 import { sectionTitleClass } from "@/components/invitation-ui";
@@ -23,8 +23,10 @@ function coverflowStyle(offset: number): CSSProperties | null {
 export function AlbumSection() {
   const photos = invitation.album;
   const n = photos.length;
+  const rootRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
+  const [inView, setInView] = useState(false);
 
   function offsetOf(i: number) {
     let d = i - index;
@@ -40,8 +42,29 @@ export function AlbumSection() {
     setIndex((i) => (i + 1) % n);
   }
 
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.35 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView || open || n <= 1) return;
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % n);
+    }, 3000);
+    return () => window.clearInterval(id);
+  }, [inView, open, n, index]);
+
   return (
-    <div className="relative w-full">
+    <div ref={rootRef} className="relative w-full">
       <div className="pointer-events-none absolute -right-1 top-[-7px] z-10 w-[42px] md:top-2 md:right-6 md:w-[54px]">
         <img
           src="/images/themes/love-art/3-tim.webp"

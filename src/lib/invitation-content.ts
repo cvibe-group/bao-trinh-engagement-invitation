@@ -8,14 +8,14 @@ import type { InvitationContent } from "@/types/invitation";
 export const invitation: InvitationContent = {
   isPlaceholderEventDetails: true,
   groom: {
-    roleLabel: "Trưởng Nam",
+    roleLabel: "Quý Công Tử",
     shortName: "Gia Bảo",
     fullName: "Gia Bảo",
     photo: "/images/photos/groom.jpg",
     frame: "/images/themes/love-art/groom-frame.webp",
   },
   bride: {
-    roleLabel: "Thứ Nữ",
+    roleLabel: "Đại Tiểu Thư",
     shortName: "Phương Trinh",
     fullName: "Phương Trinh",
     photo: "/images/photos/bride.jpg",
