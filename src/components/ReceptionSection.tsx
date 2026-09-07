@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { invitation, googleCalendarUrl } from "@/lib/invitation-content";
 import { CalendarHeartIcon, CloseIcon } from "@/components/icons";
 import { DateStamp, sectionTitleClass } from "@/components/invitation-ui";
@@ -33,6 +33,29 @@ export function ReceptionSection() {
   const [name, setName] = useState("");
   const [status, setStatus] = useState<"yes" | "no">("yes");
   const [done, setDone] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (!name.trim() || sending) return;
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), status }),
+      });
+      if (!res.ok) throw new Error("rsvp_failed");
+      setDone(true);
+      setName("");
+    } catch {
+      setError("Không gửi được xác nhận. Thử lại nhé.");
+    } finally {
+      setSending(false);
+    }
+  }
 
   return (
     <>
@@ -125,6 +148,7 @@ export function ReceptionSection() {
           onClick={() => {
             setRsvpOpen(true);
             setDone(false);
+            setError("");
           }}
           className="font-hand inline-flex min-h-[36px] items-center justify-center rounded-full bg-invitation px-6 py-0 text-[13px] leading-none font-light tracking-widest text-white uppercase transition-transform hover:scale-[1.03] md:min-h-[40px] md:text-[14px]"
         >
@@ -149,16 +173,10 @@ export function ReceptionSection() {
                 Cảm ơn bạn đã xác nhận!
               </p>
             ) : (
-              <form
-                className="mt-4 flex flex-col gap-3"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (!name.trim()) return;
-                  setDone(true);
-                }}
-              >
+              <form className="mt-4 flex flex-col gap-3" onSubmit={onSubmit}>
                 <input
                   required
+                  maxLength={80}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Nhập tên của bạn*"
@@ -180,11 +198,15 @@ export function ReceptionSection() {
                   />
                   Không tham dự được
                 </label>
+                {error ? (
+                  <p className="font-hand text-sm text-invitation">{error}</p>
+                ) : null}
                 <button
                   type="submit"
-                  className="font-hand mt-1 rounded-full bg-invitation py-2 text-sm font-light tracking-wider text-white uppercase"
+                  disabled={sending}
+                  className="font-hand mt-1 rounded-full bg-invitation py-2 text-sm font-light tracking-wider text-white uppercase disabled:opacity-60"
                 >
-                  Gửi
+                  {sending ? "Đang gửi..." : "Gửi"}
                 </button>
               </form>
             )}
