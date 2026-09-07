@@ -51,7 +51,7 @@ export const invitation: InvitationContent = {
     year: "2026",
     lunar: "(Tức ngày 6 tháng 8 năm Bính Ngọ)",
   },
-  albumHeading: "Album Ảnh",
+  albumHeading: "Album",
   album: [
     "/images/photos/album-01.jpg",
     "/images/photos/album-02.jpg",
@@ -80,10 +80,10 @@ export const invitation: InvitationContent = {
     monthNum: 9,
   },
   venueHeading: "TIỆC ĐÍNH HÔN SẼ TỔ CHỨC TẠI TƯ GIA",
-  venue: "Cầu Tham Rôn, Bình Phú, Đồng Tháp (Đối Diện Tạp Hoá Phúc Khang)",
+  venue: "Đối Diện Cầu Tham Rôn, Bình Phú, Đồng Tháp",
   mapUrl:
     "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1207.235581408615!2d106.07359226961701!3d10.383895318499446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIzJzAyLjAiTiAxMDbCsDA0JzI3LjMiRQ!5e1!3m2!1svi!2s!4v1787726621079!5m2!1svi!2s",
-  timelineHeading: "LỊCH TRÌNH NGÀY ĐÍNH HÔN",
+  timelineHeading: "LỊCH TRÌNH LỄ ĐÍNH HÔN",
   timeline: [
     { time: "08:30", label: "Đón Khách" },
     { time: "09:00", label: "Lễ Gia Tiên" },
@@ -91,7 +91,7 @@ export const invitation: InvitationContent = {
     { time: "10:30", label: "Nhập Tiệc" },
     { time: "12:00", label: "Kết Thúc Tiệc" },
   ],
-  guestbookHeading: "Sổ lưu bút",
+  guestbookHeading: "Gửi Lời Yêu Thương",
   guestbookEmpty: "Chưa có lời chúc nào. Hãy là người đầu tiên!",
   guestbookNamePlaceholder: "Nhập tên của bạn*",
   guestbookMessagePlaceholder: "Nhập lời chúc của bạn*",
