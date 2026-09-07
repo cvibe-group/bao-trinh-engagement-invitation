@@ -12,6 +12,7 @@ import { ThanksFooter } from "@/components/ThanksFooter";
 import { TimelineSection } from "@/components/TimelineSection";
 import { VenueSection } from "@/components/VenueSection";
 import { useAutoScroll } from "@/hooks/use-auto-scroll";
+import { useGuestName } from "@/hooks/use-guest-name";
 import { cn } from "@/lib/utils";
 
 function subscribe() {
@@ -28,6 +29,7 @@ export function InvitationApp() {
     getSkipEnvelope,
     () => false,
   );
+  const guestName = useGuestName();
   const [dismissed, setDismissed] = useState(false);
   const [leaving, setLeaving] = useState(false);
   const [playing, setPlaying] = useState(false);
@@ -52,6 +54,7 @@ export function InvitationApp() {
       {showOverlay ? (
         <EnvelopeOverlay
           leaving={leaving}
+          guestName={guestName}
           onOpen={() => {
             void musicRef.current?.play();
             setLeaving(true);

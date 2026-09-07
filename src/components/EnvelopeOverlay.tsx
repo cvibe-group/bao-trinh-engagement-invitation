@@ -20,12 +20,14 @@ const PARTICLES = [
 
 type EnvelopeOverlayProps = {
   leaving: boolean;
+  guestName?: string;
   onOpen: () => void;
   onLeaveEnd: () => void;
 };
 
 export function EnvelopeOverlay({
   leaving,
+  guestName = "",
   onOpen,
   onLeaveEnd,
 }: EnvelopeOverlayProps) {
@@ -146,6 +148,11 @@ export function EnvelopeOverlay({
             <p className="mt-1 font-serif text-[15px] text-invitation sm:text-base">
               {invitation.envelopeInvite}
             </p>
+            {guestName ? (
+              <p className="font-hand mt-1 text-center text-[26px] leading-tight text-invitation sm:text-[32px]">
+                {guestName}
+              </p>
+            ) : null}
 
             <button
               type="button"

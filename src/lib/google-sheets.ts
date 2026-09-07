@@ -113,3 +113,33 @@ export async function listGuestbook(): Promise<Wish[]> {
   if (!Array.isArray(data.wishes)) return [];
   return data.wishes.filter(isWish);
 }
+
+export interface GuestLink {
+  at: string;
+  name: string;
+  url: string;
+}
+
+function isGuestLink(value: unknown): value is GuestLink {
+  if (!value || typeof value !== "object") return false;
+  const guest = value as Record<string, unknown>;
+  return (
+    typeof guest.at === "string" &&
+    typeof guest.name === "string" &&
+    typeof guest.url === "string"
+  );
+}
+
+export async function appendGuest(input: { name: string; url: string }) {
+  await postToAppsScript({
+    type: "guest",
+    name: input.name,
+    url: input.url,
+  });
+}
+
+export async function listGuests(): Promise<GuestLink[]> {
+  const data = await getFromAppsScript("guests");
+  if (!Array.isArray(data.guests)) return [];
+  return data.guests.filter(isGuestLink);
+}

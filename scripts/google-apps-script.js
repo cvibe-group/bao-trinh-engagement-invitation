@@ -8,11 +8,13 @@
  *    - Who has access: Anyone
  * 4. Copy Web app URL vào GOOGLE_SHEETS_WEBHOOK_URL (.env.local và Vercel)
  *
- * Hai tab RSVP / Guestbook sẽ tự tạo khi có dữ liệu đầu tiên.
+ * Các tab RSVP / Guestbook / Guests sẽ tự tạo khi có dữ liệu đầu tiên.
+ * Sau khi sửa script: Deploy > Manage deployments > Edit > New version.
  */
 
 const RSVP_SHEET = "RSVP";
 const GUESTBOOK_SHEET = "Guestbook";
+const GUESTS_SHEET = "Guests";
 const TZ = "Asia/Ho_Chi_Minh";
 
 function doPost(e) {
@@ -31,6 +33,18 @@ function doPost(e) {
         String(data.name || "").trim(),
         data.status === "yes" ? "Có" : "Không",
       ]);
+      return json_({ ok: true });
+    }
+
+    if (data.type === "guest") {
+      const name = String(data.name || "").trim();
+      const inviteUrl = String(data.url || "").trim();
+      const sheet = getOrCreateSheet_(GUESTS_SHEET, [
+        "Thời gian",
+        "Tên",
+        "URL",
+      ]);
+      sheet.appendRow([now, name, inviteUrl]);
       return json_({ ok: true });
     }
 
@@ -59,6 +73,24 @@ function doPost(e) {
 
 function doGet(e) {
   try {
+    if (e.parameter.type === "guests") {
+      const sheet = getOrCreateSheet_(GUESTS_SHEET, [
+        "Thời gian",
+        "Tên",
+        "URL",
+      ]);
+      const values = sheet.getDataRange().getValues();
+      const guests = [];
+      for (let i = values.length - 1; i >= 1; i -= 1) {
+        const at = formatCell_(values[i][0]);
+        const name = String(values[i][1] || "").trim();
+        const url = String(values[i][2] || "").trim();
+        if (!name && !url) continue;
+        guests.push({ at, name, url });
+      }
+      return json_({ ok: true, guests });
+    }
+
     if (e.parameter.type === "guestbook") {
       const sheet = getOrCreateSheet_(GUESTBOOK_SHEET, [
         "Thời gian",

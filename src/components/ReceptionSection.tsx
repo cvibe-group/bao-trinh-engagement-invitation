@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { invitation, googleCalendarUrl } from "@/lib/invitation-content";
 import { CalendarHeartIcon, CloseIcon } from "@/components/icons";
 import { DateStamp, sectionTitleClass } from "@/components/invitation-ui";
+import { useGuestName } from "@/hooks/use-guest-name";
 
 const WEEKDAYS = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"];
 
@@ -29,8 +30,12 @@ export function ReceptionSection() {
     reception.monthNum,
     reception.highlightDay,
   );
+  const guestName = useGuestName();
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const [name, setName] = useState("");
+  useEffect(() => {
+    if (guestName) setName(guestName);
+  }, [guestName]);
   const [status, setStatus] = useState<"yes" | "no">("yes");
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);

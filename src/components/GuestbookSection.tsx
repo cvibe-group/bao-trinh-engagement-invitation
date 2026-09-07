@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { invitation } from "@/lib/invitation-content";
 import type { Wish } from "@/types/invitation";
 import { sectionTitleClass } from "@/components/invitation-ui";
+import { useGuestName } from "@/hooks/use-guest-name";
 
 function isWish(value: unknown): value is Wish {
   if (!value || typeof value !== "object") return false;
@@ -17,12 +18,17 @@ function isWish(value: unknown): value is Wish {
 }
 
 export function GuestbookSection() {
+  const guestName = useGuestName();
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [author, setAuthor] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (guestName) setAuthor(guestName);
+  }, [guestName]);
 
   useEffect(() => {
     let cancelled = false;
