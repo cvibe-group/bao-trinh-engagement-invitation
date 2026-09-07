@@ -30,7 +30,7 @@ export const invitation: InvitationContent = {
     grandparentsLabel: "Ông Bà",
     father: "Trương Hoàng Dũng",
     mother: "Lưu Kiều Phượng",
-    address: "Khu phố 1, Phường Mỹ Phước Tây, Tỉnh Đồng Tháp",
+    address: "Khu Phố 1, Phường Mỹ Phước Tây, Tỉnh Đồng Tháp",
   },
   brideFamily: {
     grandparentsLabel: "Bà",
@@ -83,7 +83,7 @@ export const invitation: InvitationContent = {
   venue: "Đối Diện Cầu Tham Rôn, Bình Phú, Đồng Tháp",
   mapUrl:
     "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1207.235581408615!2d106.07359226961701!3d10.383895318499446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIzJzAyLjAiTiAxMDbCsDA0JzI3LjMiRQ!5e1!3m2!1svi!2s!4v1787726621079!5m2!1svi!2s",
-  timelineHeading: "LỊCH TRÌNH LỄ ĐÍNH HÔN",
+  timelineHeading: "LỊCH TRÌNH TIỆC ĐÍNH HÔN",
   timeline: [
     { time: "08:30", label: "Đón Khách" },
     { time: "09:00", label: "Lễ Gia Tiên" },
