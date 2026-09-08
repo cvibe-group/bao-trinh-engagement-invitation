@@ -10,14 +10,14 @@ export const invitation: InvitationContent = {
   groom: {
     roleLabel: "Quý Công Tử",
     shortName: "Gia Bảo",
-    fullName: "Gia Bảo",
+    fullName: "Trương Hoàng Gia Bảo",
     photo: "/images/photos/groom.jpg",
     frame: "/images/themes/love-art/groom-frame.webp",
   },
   bride: {
     roleLabel: "Đại Tiểu Thư",
     shortName: "Phương Trinh",
-    fullName: "Phương Trinh",
+    fullName: "Nguyễn Ngọc Phương Trinh",
     photo: "/images/photos/bride.jpg",
     frame: "/images/themes/love-art/bride-frame.webp",
   },
