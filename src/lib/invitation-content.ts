@@ -33,10 +33,10 @@ export const invitation: InvitationContent = {
     address: "Khu Phố 1, Phường Mỹ Phước Tây, Tỉnh Đồng Tháp",
   },
   brideFamily: {
-    grandparentsLabel: "Bà",
-    father: "",
+    grandparentsLabel: "Ông Bà",
+    father: "Trần Văn Phương",
     mother: "Dương Thị Bé Hai",
-    address: "Ấp 7, Xã Bình Phú, Tỉnh Đồng Tháp",
+    address: "Ấp Cẩm Sơn, Xã Bình Phú, Tỉnh Đồng Tháp",
   },
   ceremony: {
     announcement: "TRÂN TRỌNG BÁO TIN",
@@ -60,6 +60,7 @@ export const invitation: InvitationContent = {
     "/images/photos/album-05.jpg",
     "/images/photos/album-06.jpg",
     "/images/photos/album-07.jpg",
+    "/images/photos/album-08.jpg",
     "/images/photos/album-09.jpg",
   ],
   receptionHeading: "THÔNG TIN LỄ ĐÍNH HÔN",
