@@ -62,10 +62,10 @@ export const invitation: InvitationContent = {
     "/images/photos/album-07.jpg",
     "/images/photos/album-09.jpg",
   ],
-  receptionHeading: "THÔNG TIN TIỆC ĐÍNH HÔN",
+  receptionHeading: "THÔNG TIN LỄ ĐÍNH HÔN",
   reception: {
-    heading: "THÔNG TIN TIỆC ĐÍNH HÔN",
-    timeIntro: "Tiệc đính hôn sẽ diễn ra vào lúc:",
+    heading: "THÔNG TIN LỄ ĐÍNH HÔN",
+    timeIntro: "Lễ đính hôn sẽ diễn ra vào lúc:",
     time: "09:00",
     weekday: "THỨ TƯ",
     day: "16",
@@ -79,11 +79,11 @@ export const invitation: InvitationContent = {
     yearNum: 2026,
     monthNum: 9,
   },
-  venueHeading: "TIỆC ĐÍNH HÔN SẼ TỔ CHỨC TẠI TƯ GIA",
+  venueHeading: "LỄ ĐÍNH HÔN SẼ TỔ CHỨC TẠI TƯ GIA",
   venue: "Đối Diện Cầu Tham Rôn, Bình Phú, Đồng Tháp",
   mapUrl:
     "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1207.235581408615!2d106.07359226961701!3d10.383895318499446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIzJzAyLjAiTiAxMDbCsDA0JzI3LjMiRQ!5e1!3m2!1svi!2s!4v1787726621079!5m2!1svi!2s",
-  timelineHeading: "LỊCH TRÌNH TIỆC ĐÍNH HÔN",
+  timelineHeading: "LỊCH TRÌNH LỄ ĐÍNH HÔN",
   timeline: [
     { time: "08:30", label: "Đón Khách" },
     { time: "09:00", label: "Lễ Gia Tiên" },
@@ -111,7 +111,7 @@ export function googleCalendarUrl(content: InvitationContent): string {
   );
   const dates = "20260916T030000Z/20260916T060000Z";
   const details = encodeURIComponent(
-    `Tiệc đính hôn của ${content.groom.fullName} & ${content.bride.fullName} tại ${content.venue}`,
+    `Lễ đính hôn của ${content.groom.fullName} & ${content.bride.fullName} tại ${content.venue}`,
   );
   const location = encodeURIComponent(content.venue);
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&ctz=Asia/Ho_Chi_Minh&details=${details}&location=${location}`;
